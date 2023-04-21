@@ -91,12 +91,9 @@ class SubsetSampling():
         combs = itertools.combinations(range(self.poolSize), self.subsetSize)
         if amount:
             slice_step = self.totPoolSubsets/amount
-            print(f"tot {self.totPoolSubsets}, step {slice_step}")
-            # subsets = list(itertools.islice(combs, offset, None, slice_step))
+            #print(f"tot {self.totPoolSubsets}, step {slice_step}")
             ids = [int(int(i % slice_step) == 0) for i in range(self.totPoolSubsets)]
             subsets = list(itertools.compress(combs, ids))
-            print(subsets)
-            # subsets = [v for i, v in enumerate(combs) if i in ids]
         else:
             subsets = list(combs)
 
